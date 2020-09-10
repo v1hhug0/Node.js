@@ -20,11 +20,12 @@ var server = http.createServer(function(req, res) {
             res.end();
         });
     } else if (req.url == "/cadastro.txt") {
-        fs.readFile("cadastros.html", function(err, data) {
+        fs.readFile("cadastro.txt", function(err, data) {
             res.writeHead(200, {
                 "Content-Type": "text/html; charset=utf-8"
             });
             res.write(data);
+            res.end();
         });
     } else {
         const q = url.parse(req.url, true);
